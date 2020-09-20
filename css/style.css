@@ -1,0 +1,155 @@
+.dropbtn {
+    
+    color:black;
+    padding: 16px;
+    font-size: 16px;
+    background-color: lightgray;
+    
+  }
+  
+ 
+  #first-item {
+    position: relative;
+    
+    display: block;
+    float: left;
+    margin-top: 30px;
+    margin-left: 50px;
+  }
+  
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+ 
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  
+  #first-item:hover .dropdown-content {display: block;}
+  
+ 
+  #first-item:hover .dropbtn {background-color:white;}
+
+  #second-item {
+    position: relative;
+    display: block;
+    float: left;
+    margin-top: 30px;
+    margin-left: 50px;
+  }
+
+  #second-item:hover .dropdown-content {display: block;}
+  
+ 
+  #second-item:hover .dropbtn {background-color: white;}
+
+  #third-item {
+    position: relative;
+    display: block;
+    float: left;
+    margin-top: 30px;
+    margin-left: 50px;
+  }
+
+  #third-item:hover .dropdown-content {display: block;}
+  
+ 
+  #third-item:hover .dropbtn {background-color: white;}
+
+  #fourth-item {
+    position: relative;
+    display: block;
+    float: left;
+    margin-top: 30px;
+    margin-left: 50px;
+  }
+
+  #fourth-item:hover .dropdown-content {display: block;}
+  
+ 
+  #fourth-item:hover .dropbtn {background-color: white;}
+
+  #logo{
+      float: left;
+      background-color: black;
+      margin-left: 300px;
+      margin-top: 15px;
+      
+  }
+
+  nav{
+      background-color: gray;
+      height: 100px;
+  }
+  #pic-960{
+      width: 50%;
+      margin-left: 300px;
+      margin-right: auto;
+      margin-top: 50px;
+  }
+  #pic1-300{
+      margin-top: 50px;
+      float: left;
+      margin-left: 300px;
+  }
+  #pic2-300{
+      margin-top: 50px;
+      float: left;
+      margin-left: 30px;
+  }
+  #pic3-300{
+    margin-top: 50px;
+    float: left;
+    margin-left: 30px;
+      
+  }
+  #pic-480{
+    margin-top: 50px;
+    float: left;
+    margin-left: 300px;
+
+  }
+  #para {
+      float: left;
+      width: 30%;
+      margin-left: 20px;
+      margin-top: 50px;
+      font-size: 18px;
+      margin-bottom: 0px;
+      
+  }
+  #button{
+      float: left;
+      margin-top: 35px;
+      margin-right: 400px;
+      margin-left: 20px;
+      
+  }
+  button{
+      padding: 10px 30px;
+      background-color: black;
+      color: white;
+      font-weight: bolder;
+  }
+  p{
+      font-style: italic;
+  }
+#footer{
+    height: 100px; 
+    background-color: gray;
+     margin-top: 900px;
+}
