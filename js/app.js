@@ -11,7 +11,7 @@ var currentLeftImage;
 var currentRightImage;
 var currentMidImage;
 var totalClicks = 0;
-var maxNumberOfTrials = 8;
+var maxNumberOfTrials = 25;
 
 var testarr = [-1, -1, -1];
 var nameOfProduct = [];
