@@ -11,14 +11,22 @@ var currentLeftImage;
 var currentRightImage;
 var currentMidImage;
 var totalClicks = 0;
-var maxNumberOfTrials = 25;
+var maxNumberOfTrials = 8;
+
+var testarr = [-1, -1, -1];
+var nameOfProduct = [];
+var votesarray = [];
+var timesDiplayed = [];
 
 function product(Name, link) {
     this.Name = Name;
     this.link = link;
     this.votes = 0;
     this.timeDisplaed = 0;
+
     globalarr.push(this);
+    nameOfProduct.push(this.Name);
+
 
 }
 
@@ -43,22 +51,40 @@ new product('usb', 'img/usb.gif');
 new product('water-can', 'img/water-can.jpg');
 new product('wine-glass', 'img/wine-glass.jpg');
 console.log(globalarr);
-function pickRandomNumber() {
+console.log(nameOfProduct);
 
-    var leftImageIndex = Math.floor(Math.random() * globalarr.length);
-    console.log(leftImageIndex);
+
+function pickRandomNumber() {
+    do {
+
+        var leftImageIndex = Math.floor(Math.random() * globalarr.length);
+
+    } while (leftImageIndex === testarr[0] || leftImageIndex === testarr[1] || leftImageIndex === testarr[2]);
 
     do {
         var midImageIndex = Math.floor((Math.random() * globalarr.length));
-    } while (leftImageIndex === midImageIndex);
-    console.log(midImageIndex);
+
+    } while (leftImageIndex === midImageIndex || midImageIndex === testarr[0] || midImageIndex === testarr[1] || midImageIndex === testarr[2]);
+
     do {
         var rightImageIndex = Math.floor((Math.random() * globalarr.length));
 
-    } while (leftImageIndex === rightImageIndex || midImageIndex === rightImageIndex);
+
+    } while (leftImageIndex === rightImageIndex || midImageIndex === rightImageIndex || rightImageIndex === testarr[0] || rightImageIndex === testarr[1] || rightImageIndex === testarr[2]);
+
+    testarr = [];
+    testarr.push(leftImageIndex);
+    testarr.push(midImageIndex);
+    testarr.push(rightImageIndex);
+
+
+
+
+
 
     displayImages(leftImageIndex, midImageIndex, rightImageIndex);
 }
+
 
 function displayImages(leftIndex, midIndex, rightIndex) {
     currentLeftImage = globalarr[leftIndex];
@@ -79,11 +105,12 @@ pickRandomNumber();
 imagesSection.addEventListener('click', voting);
 function displayList() {
     var list;
-    for (var i = 0; i < globalarr.length; i++){
+    for (var i = 0; i < globalarr.length; i++) {
         list = document.createElement('li');
-    list.textContent =  globalarr[i].Name +' had ' + globalarr[i].votes + ' votes and was shown ' + globalarr[i].timeDisplaed;
-    listOfItem.appendChild(list);
-}}
+        list.textContent = globalarr[i].Name + ' had ' + globalarr[i].votes + ' votes and was shown ' + globalarr[i].timeDisplaed;
+        listOfItem.appendChild(list);
+    }
+}
 
 function voting(event) {
     var clickedImage;
@@ -101,10 +128,50 @@ function voting(event) {
     pickRandomNumber();
     totalClicks++;
 
+    listOfItem.textContent = '';
+
+
     if (totalClicks >= maxNumberOfTrials) {
         imagesSection.removeEventListener('click', voting);
+        for (var i = 0; i < globalarr.length; i++) {
 
+            votesarray.push(globalarr[i].votes);
+            timesDiplayed.push(globalarr[i].timeDisplaed)
+
+        }
+        console.log('number of votes' + votesarray);
+        console.log('number of displayed' + timesDiplayed);
         displayList();
+
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'bar',
+
+            // The data for our dataset
+            data: {
+                labels: nameOfProduct,
+                datasets: [{
+                    label: 'Number of votes',
+                    backgroundColor: 'rgb(255, 99, 132)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: votesarray
+                }, {
+                    label: 'Number of Displayed',
+                    backgroundColor: 'rgb(47,79,79)',
+                    borderColor: 'rgb(47,79,79)',
+                    data: timesDiplayed
+                }]
+            },
+
+            // Configuration options go here
+            options: {}
+        });
+        console.log('do you come here??');
+
+        document.getElementById('button').style.visibility = 'visible';
+        
     }
 
 }
+

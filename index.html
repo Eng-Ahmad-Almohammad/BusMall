@@ -7,6 +7,7 @@
     <title>wireframe</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 </head>
 
 <body>
@@ -73,7 +74,8 @@
             </div>
         </section>
         <div id="pic-480">
-            <img  src="https://i.pinimg.com/236x/0d/97/72/0d977216934ba8b93a1341c0bb328aa5.jpg" style="width: 380px; height: 400px;" alt="">
+            <canvas id="myChart" style="width: 480px; height: 400px;"></canvas>
+
 
         </div>
 
@@ -83,7 +85,7 @@
            </ul>
         </div>
         <div id="button">
-            <button>Call Action</button>
+            <button onclick="history.go(0)">Vote Again</button>
         </div>
 
     </main>
