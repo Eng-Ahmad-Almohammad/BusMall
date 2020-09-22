@@ -28,7 +28,11 @@ function product(Name, link) {
     nameOfProduct.push(this.Name);
 
 
+
+
 }
+
+
 
 new product('bag', 'img/bag.jpg');
 new product('banana', 'img/banana.jpg');
@@ -52,6 +56,11 @@ new product('water-can', 'img/water-can.jpg');
 new product('wine-glass', 'img/wine-glass.jpg');
 console.log(globalarr);
 console.log(nameOfProduct);
+
+if(localStorage.getItem('allProducts')){
+    globalarr=[];
+    globalarr = JSON.parse(localStorage.getItem('allProducts'));
+}
 
 
 function pickRandomNumber() {
@@ -113,6 +122,7 @@ function displayList() {
 }
 
 function voting(event) {
+    
     var clickedImage;
 
     if (event.target.id === 'pic1-300') {
@@ -139,8 +149,8 @@ function voting(event) {
             timesDiplayed.push(globalarr[i].timeDisplaed)
 
         }
-        console.log('number of votes' + votesarray);
-        console.log('number of displayed' + timesDiplayed);
+        // console.log('number of votes' + votesarray);
+        // console.log('number of displayed' + timesDiplayed);
         displayList();
 
         var ctx = document.getElementById('myChart').getContext('2d');
@@ -167,11 +177,13 @@ function voting(event) {
             // Configuration options go here
             options: {}
         });
-        console.log('do you come here??');
+
 
         document.getElementById('button').style.visibility = 'visible';
-        
+
+
+
+        localStorage.setItem('allProducts', JSON.stringify(globalarr));
     }
 
 }
-
