@@ -1,5 +1,5 @@
 'use strict'
-
+// declaring global variables
 var globalarr = [];
 
 var leftImage = document.getElementById('pic1-300');
@@ -18,7 +18,9 @@ var nameOfProduct = [];
 var votesarray = [];
 var timesDiplayed = [];
 
-function product(Name, link) {
+// Constructre for create product Array
+
+function Product(Name, link) {
     this.Name = Name;
     this.link = link;
     this.votes = 0;
@@ -32,37 +34,37 @@ function product(Name, link) {
 
 }
 
+// Declaring new objects
 
-
-new product('bag', 'img/bag.jpg');
-new product('banana', 'img/banana.jpg');
-new product('bathroom', 'img/bathroom.jpg');
-new product('boots', 'img/boots.jpg');
-new product('breakfast', 'img/breakfast.jpg');
-new product('bubblegum', 'img/bubblegum.jpg');
-new product('chair', 'img/chair.jpg');
-new product('cthulhu', 'img/cthulhu.jpg');
-new product('dog-duck', 'img/dog-duck.jpg');
-new product('dragon', 'img/dragon.jpg');
-new product('pen', 'img/pen.jpg');
-new product('pet-sweep', 'img/pet-sweep.jpg')
-new product('scissors', 'img/scissors.jpg');
-new product('shark', 'img/shark.jpg');
-new product('sweep', 'img/sweep.png');
-new product('tauntaun', 'img/tauntaun.jpg');
-new product('unicorn', 'img/unicorn.jpg');
-new product('usb', 'img/usb.gif');
-new product('water-can', 'img/water-can.jpg');
-new product('wine-glass', 'img/wine-glass.jpg');
+new Product('bag', 'img/bag.jpg');
+new Product('banana', 'img/banana.jpg');
+new Product('bathroom', 'img/bathroom.jpg');
+new Product('boots', 'img/boots.jpg');
+new Product('breakfast', 'img/breakfast.jpg');
+new Product('bubblegum', 'img/bubblegum.jpg');
+new Product('chair', 'img/chair.jpg');
+new Product('cthulhu', 'img/cthulhu.jpg');
+new Product('dog-duck', 'img/dog-duck.jpg');
+new Product('dragon', 'img/dragon.jpg');
+new Product('pen', 'img/pen.jpg');
+new Product('pet-sweep', 'img/pet-sweep.jpg')
+new Product('scissors', 'img/scissors.jpg');
+new Product('shark', 'img/shark.jpg');
+new Product('sweep', 'img/sweep.png');
+new Product('tauntaun', 'img/tauntaun.jpg');
+new Product('unicorn', 'img/unicorn.jpg');
+new Product('usb', 'img/usb.gif');
+new Product('water-can', 'img/water-can.jpg');
+new Product('wine-glass', 'img/wine-glass.jpg');
 console.log(globalarr);
 console.log(nameOfProduct);
-
+// Get all item from local Storage
 if(localStorage.getItem('allProducts')){
     globalarr=[];
     globalarr = JSON.parse(localStorage.getItem('allProducts'));
 }
 
-
+// Function to pick random Numbers and compare them to make sure that there is no duplication and the pictures did not displayed in previous round
 function pickRandomNumber() {
     do {
 
@@ -94,7 +96,7 @@ function pickRandomNumber() {
     displayImages(leftImageIndex, midImageIndex, rightImageIndex);
 }
 
-
+// Function to display Images
 function displayImages(leftIndex, midIndex, rightIndex) {
     currentLeftImage = globalarr[leftIndex];
     currentMidImage = globalarr[midIndex];
@@ -110,7 +112,7 @@ function displayImages(leftIndex, midIndex, rightIndex) {
 
 }
 pickRandomNumber();
-
+// Add Event Listner To indicate which picture was cliced and count dispalyed times and voting times and drawing chart
 imagesSection.addEventListener('click', voting);
 function displayList() {
     var list;
