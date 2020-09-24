@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Yanone+Kaffeesatz:wght@600&display=swap');
+
 .dropbtn {
     
     color:black;
@@ -130,6 +133,9 @@
       margin-top: 50px;
       font-size: 18px;
       margin-bottom: 0px;
+      overflow-y: scroll;
+      height: 350px;
+      visibility: hidden;
       
   }
   #button{
@@ -145,6 +151,7 @@
       background-color: black;
       color: white;
       font-weight: bolder;
+      font-size: 20px;
       
   }
   p{
@@ -159,4 +166,13 @@
 body{
   background-image: url(https://images.hdqwalls.com/download/simple-gray-abstract-background-wi-1360x768.jpg);
   background-size: cover;
+}
+
+*{
+  color: whitesmoke;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  
+}
+#result-list{
+  font-size: 30px;
 }

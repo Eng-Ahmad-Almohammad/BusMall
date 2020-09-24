@@ -180,6 +180,7 @@ function voting(event) {
 
 
         document.getElementById('button').style.visibility = 'visible';
+        document.getElementById('para').style.visibility = 'visible';
 
 
 
