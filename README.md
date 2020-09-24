@@ -1,1 +1,4 @@
 # BusMall
+## In my small project I give the user the ability to vote for product from three in each single round, total number for rounds is 25 round, the trick is trick is: the user will not see similar products from previous round.
+## after voting the chart and the list will appear and giving the user all the details about each how many each product was displayed and how many votes got from the user,aaitional to a button which make the user to revote again/
+## the user will not loose his previous results when he refrech the page after voting so he can vote again and the results will be cumulative.
